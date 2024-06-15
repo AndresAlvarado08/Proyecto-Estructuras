@@ -24,6 +24,7 @@ function dequeue()
 function readQueue()
 {
     const output = document.getElementById('output');
+
     if (queue.length > 0)
     {
         output.innerText = 'Queue: ' + queue.join(', ');
@@ -39,6 +40,7 @@ function displayQueue()
 {
     const queueContainer = document.getElementById('queue-container');
     queueContainer.innerHTML = '';
+    
     queue.forEach(element => {
         const div = document.createElement('div');
         div.className = 'queue-element';
