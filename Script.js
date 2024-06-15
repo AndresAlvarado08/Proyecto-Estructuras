@@ -1,31 +1,31 @@
-let queue = [];
+let queue = []; //creacion de la queue
 
-function enqueue()
+function enqueue()  //agregar a la cola
 {
     const inputValue = document.getElementById('inputValue').value;
 
     if (inputValue)
     {
-        queue.push(inputValue);
+        queue.push(inputValue); //se agrega a la cola
         document.getElementById('inputValue').value = '';
-        displayQueue();
-        animateInsertion();
+        displayQueue(); //lo manda a la funcion de display que sal arriba de la caja
+        animateInsertion(); //Anima la entrada del numero/caracter
     }
 }
 
 function dequeue()
 {
-    if (queue.length > 0)
+    if (queue.length > 0)   
     {
         const element = document.querySelector('.queue-element');
         if (element)
         {
             element.classList.add('fade-out');
-            setTimeout(() =>
+            setTimeout(() =>    //para delimitar en cuando tiempo se realizara la accion
             {
-                queue.shift();
-                displayQueue();
-            }, 300); // Wait for the animation to complete
+                queue.shift();  //lo saca de la queue 
+                displayQueue(); //lo saca de la queue (visualmente)
+            }, 300); // tiempo de animacion
         }
     }
 }
@@ -35,9 +35,9 @@ function animateInsertion()
     const elements = document.querySelectorAll('.queue-element');
     const newElement = elements[elements.length - 1];
 
-    if (newElement)
+    if (newElement) //si se agrega algo
     {
-        newElement.classList.add('fade-in');
+        newElement.classList.add('fade-in'); //se agrega y reproduce la animacion
     }
 }
 
@@ -47,12 +47,12 @@ function readQueue()
 
     if (queue.length > 0)
     {
-        output.innerText = 'Queue: ' + queue.join(', ');
+        output.innerText = 'La filita: ' + queue.join(', ');
     }
     
     else
     {
-        output.innerText = 'Nu hay na';
+        output.innerText = 'No hay nada nadita :v';
     }
 }
 
